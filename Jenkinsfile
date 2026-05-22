@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/karthikjerryd/tfc.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
@@ -43,7 +37,7 @@ pipeline {
 
     post {
         success {
-            echo 'Website deployed successfully!'
+            echo 'Deployment successful!'
         }
 
         failure {
